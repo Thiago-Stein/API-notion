@@ -72,7 +72,30 @@ app.put("/users/:id", (req, res) => {
     mensagem: "Usuário atualizado!",
     dadosNovos: { id, nome, idadeNum, email },
   });
-}); // Fim da rota PUT
+});
+
+app.delete("/users/:id", (req, res) => {
+  try {
+    // 1. Pega o ID da URL (ex: /users/3)
+    const id = req.params.id;
+
+    // 2. Prepara o comando de deletar no banco
+    const deletarUsuario = db.prepare("DELETE FROM users WHERE id = ?");
+
+    // 3. Roda o comando passando o ID
+    const resultado = deletarUsuario.run(id);
+
+    // 4. Responde se deu certo
+    if (resultado.changes === 0) {
+      // O 'return' faz o código parar aqui mesmo!
+      return res.status(404).json({ erro: "Usuário não encontrado!" });
+    }
+
+    res.status(200).json({ mensagem: "Usuário deletado com sucesso!" });
+  } catch (erro) {
+    res.status(500).json({ erro: "Erro interno ao tentar deletar o usuário." });
+  }
+});
 
 app.listen(3000, () => {
   console.log("http://localhost:3000/users");
