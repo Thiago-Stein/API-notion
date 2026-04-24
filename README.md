@@ -35,7 +35,7 @@ Para acompanhar toda a evolução lógica, explicações teóricas e o passo a p
 
 ---
 
-## 🏗️ Estrutura de Arquivos (Em Evolução)
+##  Estrutura de Arquivos (Em Evolução)
 
 O projeto está passando por um processo de refatoração para seguir padrões de arquitetura de mercado (MVC):
 
@@ -64,7 +64,7 @@ O projeto está passando por um processo de refatoração para seguir padrões d
 
 ---
 
-## 👨‍💻 Desenvolvedor
+##  Desenvolvedor
 
 **Thiago Stein** - Estudante do segundo ano de Engenharia de Software na Unifil e aspirante a Desenvolvedor Backend (Java/Node.js).
 
